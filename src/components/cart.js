@@ -15,7 +15,7 @@ class Cart extends Component {
             status: "WAITING"
             };
         
-        this.props.placeNewOrder(newOrder);
+        this.props.placeNewOrder(this.props.history, newOrder);
     }
 
     renderCartItems(item) {

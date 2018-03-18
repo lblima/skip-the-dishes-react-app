@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions/store';
+import * as actions from '../../actions/store';
 import Store from './store';
 
-import './components.css';
+import '../components.css';
 
 class Stores extends Component {
 
@@ -12,6 +12,7 @@ class Stores extends Component {
     }
 
     renderStores(store) {
+        console.log(store)
         return (
             <Store key={store.id} id={store.id} name={store.name} address={store.address} />
         )

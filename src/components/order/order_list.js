@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions/order';
+import * as actions from '../../actions/order';
+import Order from './order';
 
 class OrderList extends Component {
 
@@ -9,25 +10,18 @@ class OrderList extends Component {
         this.props.fetchOrders();
     }
 
-    renderOrderItems(item) {
-        console.log(item);
+    renderOrderItems(order) {
+        console.log('renderOrderItems', order);
 
         return (
-            <div className="card" key={ item.id }>
-                <div className="card-body">
-                    <h5 className="card-title">{ item.id }</h5>
-                    <p className="card-text">
-                    <span className="checkout-price">testessssss</span>
-                    </p>
-                </div>
-            </div>
+            <Order key={ order.id } id={ order.id } />
         )
     }
 
     render() {
 
-        console.log(this.props.order.items)
-        if (this.props.order.items && this.props.order.items.length == 0) {
+        console.log('render', this.props.orderList)
+        if (this.props.orderList && this.props.orderList.length == 0) {
             return (
                 <div className="container">
                     <h1>Orders</h1>
@@ -39,7 +33,7 @@ class OrderList extends Component {
         return (
             <div className="container">
                 <h1>Orders</h1>
-                { this.props.order.items.map(this.renderOrderItems) }
+                { this.props.orderList.map(this.renderOrderItems) }
                 <br/>
                 <Link to="/stores" className="btn btn-danger btn-cancel float-right">back</Link>
             </div>
@@ -47,9 +41,9 @@ class OrderList extends Component {
     }
 }
 
-function mapStateToProps({ order }) {
+function mapStateToProps({ order: { orderList } }) {
     return {
-        order
+        orderList
     }
 }
 

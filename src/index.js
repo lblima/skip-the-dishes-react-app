@@ -11,7 +11,6 @@ import registerServiceWorker from './registerServiceWorker';
 import { AUTH_USER } from './actions/types';
 import logMiddleware from './middleware/log';
 import apiMiddleware from './middleware/api';
-import throttledMiddleware from './middleware/throttled';
 
 import './style.css';
 
@@ -20,8 +19,7 @@ const reduxDevTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
 let store = createStore(reducers, 
-                            compose(applyMiddleware(logMiddleware, throttledMiddleware, 
-                                                            apiMiddleware, reduxThunk), reduxDevTools));
+                            compose(applyMiddleware(logMiddleware, apiMiddleware, reduxThunk), reduxDevTools));
 
 const token = localStorage.getItem('token');
 

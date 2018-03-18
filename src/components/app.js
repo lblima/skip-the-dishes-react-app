@@ -6,10 +6,10 @@ import Footer from "./footer/footer";
 import Signin from './auth/signin';
 import Signout from './auth/signout';
 import Signup from './auth/signup';
-import Stores from './stores';
+import Stores from './store/stores';
 import Cart from './cart';
-import OrderList from './order_list';
-import StoreProducts from './products/store-products';
+import OrderList from './order/order_list';
+import StoreProducts from './product/store-products';
 import RequireAuth from './auth/require_auth';
 import Welcome from './welcome';
 

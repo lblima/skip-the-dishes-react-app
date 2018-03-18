@@ -9,7 +9,7 @@ export function addToCart(newItem) {
     }
 }
 
-export function placeNewOrder(newOrder) {
+export function placeNewOrder(history, newOrder) {
     return {
         type: API,
         meta: {
@@ -18,10 +18,9 @@ export function placeNewOrder(newOrder) {
             contentType: 'application/json',
             throttle: 2000,
             data: newOrder,
-            callback: (data) => ({
-                type: PLACE_NEW_ORDER,
-                payload: data
-            }),
+            callback: (data) => { 
+                history.push('/order');
+            },
             error: (err) => ({
                 type: PLACE_NEW_ORDER_ERROR,
                 payload: err
