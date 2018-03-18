@@ -7,6 +7,8 @@ class Header extends Component {
 
     renderLinks() {
         if (this.props.authenticated) {
+            const totalItemOnCart = this.props.cart.items.length;
+
             return [
                 <li className="nav-item" key={1}>
                     <Link className="nav-link" to="/signout">Sign out</Link>
@@ -15,7 +17,7 @@ class Header extends Component {
                     <Link className="nav-link" to="/stores">Stores</Link>
                 </li>,
                 <li className="nav-item" key={3}>
-                    <Link className="nav-link" to="/cart">Go to Cart</Link>
+                    <Link className="nav-link" to="/cart">Go to Cart ({totalItemOnCart})</Link>
                 </li>,
                 <li className="nav-item" key={4}>
                     <Link className="nav-link" to="/order">Orders</Link>
@@ -55,9 +57,10 @@ class Header extends Component {
     }
 }
 
-function mapStateToProps({ auth: { authenticated }}) {
+function mapStateToProps({ cart, auth: { authenticated }}) {
     return {
-        authenticated
+        authenticated,
+        cart
     }
 }
 

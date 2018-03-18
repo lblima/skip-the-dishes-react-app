@@ -14,7 +14,7 @@ class OrderList extends Component {
         console.log('renderOrderItems', order);
 
         return (
-            <Order key={ order.id } id={ order.id } />
+            <Order key={ order.id } id={ order.id } items={ order.orderItems } />
         )
     }
 
