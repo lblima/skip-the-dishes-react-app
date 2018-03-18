@@ -7,7 +7,8 @@ import Signin from './auth/signin';
 import Signout from './auth/signout';
 import Signup from './auth/signup';
 import Stores from './stores';
-import StoreProducts from './store-products';
+import Cart from './cart';
+import StoreProducts from './products/store-products';
 import RequireAuth from './auth/require_auth';
 import Welcome from './welcome';
 
@@ -24,8 +25,9 @@ export default class App extends Component {
           <Route path="/signup" component={ Signup } />     
           <Route path="/stores" component={ RequireAuth(Stores) } />
           <Route path="/storeproducts/:id" component={ RequireAuth(StoreProducts) } />
+          <Route path="/cart" component={ RequireAuth(Cart) } />
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </React.Fragment>
     );
   }
