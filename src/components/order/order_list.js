@@ -21,6 +21,11 @@ class OrderList extends Component {
     render() {
 
         console.log('render', this.props.orderList)
+
+        if (!this.props.orderList) {
+            return <div className="loading"></div>
+        }
+
         if (this.props.orderList && this.props.orderList.length == 0) {
             return (
                 <div className="container">

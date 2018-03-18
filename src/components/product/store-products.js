@@ -30,9 +30,12 @@ class StoreProducts extends Component {
             return <div className="loading"></div>
         }
 
+        const totalItemOnCart = this.props.cart.items.length;
+        const pageTitle = <h1>Choose your products and add to cart (items on cart: {totalItemOnCart})</h1>
+
         return (
             <div className="container">
-                <h1>Choose your products and add to cart</h1>
+                { pageTitle }
                 { this.props.productList.map(this.renderProducts) }
                 <Link to="/stores" className="btn btn-danger btn-cancel float-right">back</Link>
             </div>
@@ -40,9 +43,10 @@ class StoreProducts extends Component {
     }
 }
 
-function mapStateToProps({ product: { productList }}) {
+function mapStateToProps({ cart, product: { productList }}) {
     return {
-        productList
+        productList,
+        cart
     };
 }
 

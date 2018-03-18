@@ -7,7 +7,7 @@ import Signin from './auth/signin';
 import Signout from './auth/signout';
 import Signup from './auth/signup';
 import Stores from './store/stores';
-import Cart from './cart';
+import Cart from './cart/cart';
 import OrderList from './order/order_list';
 import StoreProducts from './product/store-products';
 import RequireAuth from './auth/require_auth';

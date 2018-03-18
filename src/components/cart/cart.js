@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions/cart';
+import * as actions from '../../actions/cart';
 
 class Cart extends Component {
 
@@ -10,7 +10,7 @@ class Cart extends Component {
         const newOrder =  {
             deliveryAddress: "user address",
             contact: "user name",
-            storeId: 3,
+            storeId: this.props.cart.storeId,
             orderItems: this.props.cart.items.map(item => ({ productId: item.productId, quantity: item.quantity })),
             status: "WAITING"
             };
