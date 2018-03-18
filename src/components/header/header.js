@@ -7,11 +7,14 @@ class Header extends Component {
 
     renderLinks() {
         if (this.props.authenticated) {
-            return (
-                <li className="nav-item">
+            return [
+                <li className="nav-item" key={1}>
                     <Link className="nav-link" to="/signout">Sign out</Link>
+                </li>,
+                <li className="nav-item" key={2}>
+                    <Link className="nav-link" to="/stores">Stores</Link>
                 </li>
-            )
+            ]
         }
         else {
             return [
@@ -29,7 +32,7 @@ class Header extends Component {
         return (
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
                 {/* <Link to="/" className="navbar-brand">Skip The Dishes App - Welcome</Link> */}
-                <a className="navbar-brand" href="#">
+                <a className="navbar-brand" href="/">
                     Skip the Dishes
                     {/* <img src={logo} alt="Skip the Dishes" /> */}
                 </a>

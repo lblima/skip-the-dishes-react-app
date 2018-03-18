@@ -2,6 +2,8 @@ import React from 'react';
 
 export default () => {
     return (
-        <div>Welcome to Skip the Dishes</div>
+        <div>
+            <h1>Welcome to Skip the Dishes</h1>
+        </div>
     );
 }

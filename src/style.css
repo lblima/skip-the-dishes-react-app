@@ -27,11 +27,6 @@ header img {
     width: 100%;
 }
 
-/* Footer */
-
-footer {
-    color: #6c757d;
-    font-size: 14px;
-    padding: 40px 0;
-    text-align: center;
+.card {
+    margin-bottom: 20px;
 }

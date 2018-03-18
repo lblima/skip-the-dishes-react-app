@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Stores from './stores';
+import Footer from './footer';
 
-describe('Stores', () => {
+describe('Footer', () => {
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render( <Stores /> , div);
+        ReactDOM.render( <Footer /> , div);
         ReactDOM.unmountComponentAtNode(div);
     })
 });
