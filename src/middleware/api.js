@@ -22,7 +22,7 @@ export default ({ getState, dispatch }) => next => action => {
         dispatch(callback(response.data));
     })
     .catch(ex => {
-        console.log(ex.response.data);
+        console.log(ex.response);
         dispatch(error(ex.response.data));
     });
     

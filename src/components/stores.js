@@ -11,7 +11,7 @@ class Stores extends Component {
 
     renderStores(store) {
         return (
-            <Store key={store.id} name={store.name} />
+            <Store key={store.id} id={store.id} name={store.name} />
         )
     }
 
@@ -21,11 +21,9 @@ class Stores extends Component {
         }
 
         return (
-            <div>
+            <div className="container">
                 <h1>Choose one of our partner stores</h1>
-                <ul>
-                    { this.props.storeList.map(this.renderStores) }
-                </ul>
+                { this.props.storeList.map(this.renderStores) }
             </div>
         )
     }

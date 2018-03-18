@@ -1,0 +1,37 @@
+/* General */
+
+* {
+    margin: 0;
+    padding: 0
+}
+
+h1 {
+    padding: 20px 0;
+    text-align: center;
+}
+
+/* Header */
+
+header img {
+    height: 40px;
+}
+
+#navbarSupportedContent {
+    text-align: center;
+    width: 100%;
+}
+
+/* Restaurant's List */
+
+.row .col-5 img {
+    width: 100%;
+}
+
+/* Footer */
+
+footer {
+    color: #6c757d;
+    font-size: 14px;
+    padding: 40px 0;
+    text-align: center;
+}

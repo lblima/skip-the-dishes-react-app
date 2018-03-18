@@ -3,29 +3,29 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/product';
 import Product from './product';
 
-class Products extends Component {
+class StoreProducts extends Component {
 
     componentWillMount() {
-        this.props.fetchStores();
+        const { id } = this.props.match.params;
+        this.props.fetchProductsByStore(id);
     }
 
     renderProducts(product) {
         return (
-            <Store key={stproductore.id} name={product.name} />
+            <Product key={product.id} name={product.name} 
+                            description={product.description} price={product.price} />
         )
     }
 
     render() {
-        if (!this.props.storeList) {
+        if (!this.props.productList) {
             return <div>loading products...</div>
         }
 
         return (
-            <div>
+            <div class="container">
                 <h1>Choose your products and add to cart</h1>
-                <ul>
-                    { this.props.productList.map(this.renderProducts) }
-                </ul>
+                { this.props.productList.map(this.renderProducts) }
             </div>
         )
     }
@@ -37,4 +37,4 @@ function mapStateToProps({ product: { productList }}) {
     };
 }
 
-export default connect(mapStateToProps, actions)(Products);
+export default connect(mapStateToProps, actions)(StoreProducts);
