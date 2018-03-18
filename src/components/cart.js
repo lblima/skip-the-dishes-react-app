@@ -5,34 +5,22 @@ import * as actions from '../actions/cart';
 
 class Cart extends Component {
 
-    addToCart() {
+    placeNewOrder() {
 
-//         const newItem = {
-//             deliveryAddress: "user address",
-//             contact: "user name",
-//             storeId: this.props.storeId,
-//   orderItem: [
-//     {
-//         storeId: this.props.storeId,
-//       productId: this.props.productId,
-//       quantity: 1
-//     }
-//   ],
-//    status: "WAITING"
-// }
-
-        const newItem =  {
+        const newOrder =  {
+            deliveryAddress: "user address",
+            contact: "user name",
             storeId: this.props.storeId,
-            productId: this.props.productId,
-            quantity: 1
-        };
+            orderItem: this.props.cart.items.map(item => ({ productId: item.productId, quantity: item.quantity })),
+            status: "WAITING"
+            };
         
-        this.props.placeNewOrder(newItem);
+        this.props.placeNewOrder(newOrder);
     }
 
     renderCartItems(item) {
         console.log(item);
-        
+
         return (
             <div className="card" key={ item.productId }>
                 <div className="card-body">
@@ -63,7 +51,7 @@ class Cart extends Component {
                 <h1>Checkout</h1>
                 { this.props.cart.items.map(this.renderCartItems) }
                 <br/>
-                <button type="submit" className="btn btn-primary">Checkout</button>
+                <button type="submit" onClick={() => this.placeNewOrder()} className="btn btn-primary">Checkout</button>
             </div>
         )
     }
