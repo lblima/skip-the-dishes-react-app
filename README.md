@@ -1,3 +1,1 @@
-# skip-the-dishes-react-app
-
-Skipt The Dishes React App
+﻿This project is the client of a React App to test the Authentication features on React and Node Api.
