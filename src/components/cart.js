@@ -10,8 +10,8 @@ class Cart extends Component {
         const newOrder =  {
             deliveryAddress: "user address",
             contact: "user name",
-            storeId: this.props.storeId,
-            orderItem: this.props.cart.items.map(item => ({ productId: item.productId, quantity: item.quantity })),
+            storeId: 3,
+            orderItems: this.props.cart.items.map(item => ({ productId: item.productId, quantity: item.quantity })),
             status: "WAITING"
             };
         

@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
-import * as actions from '../actions/cart';
+import * as actions from '../actions/order';
 
 class OrderList extends Component {
 
-    // placeNewOrder() {
-
-    //     const newOrder =  {
-    //         deliveryAddress: "user address",
-    //         contact: "user name",
-    //         storeId: this.props.storeId,
-    //         orderItem: this.props.cart.items.map(item => ({ productId: item.productId, quantity: item.quantity })),
-    //         status: "WAITING"
-    //         };
-        
-    //     this.props.placeNewOrder(newOrder);
-    // }
+    componentDidMount() {
+        this.props.fetchOrders();
+    }
 
     renderOrderItems(item) {
         console.log(item);
