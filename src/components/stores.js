@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../actions/store';
 import Store from './store';
 
+import './components.css';
+
 class Stores extends Component {
 
     componentWillMount() {
@@ -11,13 +13,13 @@ class Stores extends Component {
 
     renderStores(store) {
         return (
-            <Store key={store.id} id={store.id} name={store.name} />
+            <Store key={store.id} id={store.id} name={store.name} address={store.address} />
         )
     }
 
     render() {
         if (!this.props.storeList) {
-            return <div>loading stores...</div>
+            return <div className="loading"></div>
         }
 
         return (

@@ -13,16 +13,12 @@ import logMiddleware from './middleware/log';
 import apiMiddleware from './middleware/api';
 import throttledMiddleware from './middleware/throttled';
 
+import './style.css';
 
 // dev tools middleware
 const reduxDevTools =
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-// const createStoreWithMiddleware = applyMiddleware(logMiddleware, throttledMiddleware, 
-//                                                         apiMiddleware, reduxThunk)(createStore);
-// const store = createStoreWithMiddleware(reducers);
-
-// const createStoreWithMiddleware = applyMiddleware(sagaMiddleware)(createStore);
 let store = createStore(reducers, 
                             compose(applyMiddleware(logMiddleware, throttledMiddleware, 
                                                             apiMiddleware, reduxThunk), reduxDevTools));

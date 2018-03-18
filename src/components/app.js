@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import Header from "./header";
+import Header from "./header/header";
+import Footer from "./footer/footer";
 import Signin from './auth/signin';
 import Signout from './auth/signout';
 import Signup from './auth/signup';
@@ -24,6 +25,7 @@ export default class App extends Component {
           <Route path="/stores" component={ RequireAuth(Stores) } />
           <Route path="/storeproducts/:id" component={ RequireAuth(StoreProducts) } />
         </Switch>
+        <Footer />
       </React.Fragment>
     );
   }

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import * as actions from '../actions/product';
 import Product from './product';
+
+import './components.css';
 
 class StoreProducts extends Component {
 
@@ -19,13 +22,14 @@ class StoreProducts extends Component {
 
     render() {
         if (!this.props.productList) {
-            return <div>loading products...</div>
+            return <div className="loading"></div>
         }
 
         return (
-            <div class="container">
+            <div className="container">
                 <h1>Choose your products and add to cart</h1>
                 { this.props.productList.map(this.renderProducts) }
+                <Link to="/stores" className="btn btn-danger btn-cancel float-right">back</Link>
             </div>
         )
     }
