@@ -7,30 +7,22 @@ class Product extends Component {
 
     addToCart() {
 
-//         const newItem = {
-//             deliveryAddress: "user address",
-//             contact: "user name",
-//             storeId: this.props.storeId,
-//   orderItem: [
-//     {
-//         storeId: this.props.storeId,
-//       productId: this.props.productId,
-//       quantity: 1
-//     }
-//   ],
-//    status: "WAITING"
-// }
-
-        const newItem =  {
-            storeId: this.props.storeId,
-            productId: this.props.productId,
-            productName: this.props.name,
-            productDescription: this.props.description,
-            productPrice: this.props.price,
-            quantity: this.refs.quantity.value
-        };
-        
-        this.props.addToCart(newItem);
+        if (Number.parseInt(this.refs.quantity.value)) {
+            const newItem =  {
+                storeId: this.props.storeId,
+                productId: this.props.productId,
+                productName: this.props.name,
+                productDescription: this.props.description,
+                productPrice: this.props.price,
+                quantity: this.refs.quantity.value
+            };
+            
+            this.props.addToCart(newItem);
+        }
+        else
+        {
+            alert('Opsss, enter a valid number');
+        }
     }
 
     render() {

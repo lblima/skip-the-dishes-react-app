@@ -57,9 +57,10 @@ class Cart extends Component {
     }
 }
 
-function mapStateToProps({ cart }) {
+function mapStateToProps({ cart, order }) {
     return {
-        cart
+        cart,
+        order
     }
 }
 
