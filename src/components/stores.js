@@ -1,33 +1,40 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../actions';
+import * as actions from '../actions/store';
+import Store from './store';
 
-class Feature extends Component {
+class Stores extends Component {
 
     componentWillMount() {
-        this.props.fetchMessage();
+        this.props.fetchStores();
     }
 
-    fetchMessage() {
-        this.props.fetchMessage();
+    renderStores(store) {
+        return (
+            <Store key={store.id} name={store.name} />
+        )
     }
 
     render() {
+        if (!this.props.storeList) {
+            return <div>loading stores...</div>
+        }
+
         return (
             <div>
-                { this.props.message}
-                <div>
-                    <button onClick={() => this.fetchMessage() }>Fetch Message Again</button>
-                </div>
+                <h1>Choose one of our partner stores</h1>
+                <ul>
+                    { this.props.storeList.map(this.renderStores) }
+                </ul>
             </div>
         )
     }
 }
 
-function mapStateToProps({ feature: { message }}) {
+function mapStateToProps({ store: { storeList }}) {
     return {
-        message
+        storeList
     };
 }
 
-export default connect(mapStateToProps, actions)(Feature);
+export default connect(mapStateToProps, actions)(Stores);

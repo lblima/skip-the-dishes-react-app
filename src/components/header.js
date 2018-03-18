@@ -27,7 +27,7 @@ class Header extends Component {
     render() {
         return (
             <nav className="navbar navbar-expand-sm bg-dark navbar-dark">
-                <Link to="/" className="navbar-brand">Redux Auth</Link>
+                <Link to="/" className="navbar-brand">Skip The Dishes App - Welcome</Link>
                 <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
                     <span className="navbar-toggler-icon"></span>
                 </button>

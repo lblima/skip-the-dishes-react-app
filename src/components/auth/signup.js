@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { reduxForm, Field } from 'redux-form';
-import * as actions from '../../actions';
+import * as actions from '../../actions/auth';
 
 class SignUp extends Component {
 
@@ -38,8 +38,10 @@ class SignUp extends Component {
         return (
             <form onSubmit={ handleSubmit(this.handleSubmitForm.bind(this)) }>
                 <Field type="text" label="E-mail" name="email" component={ this.renderField } />
+                <Field type="text" label="Name" name="name" component={ this.renderField } />
                 <Field type="password" label="Password" name="password" component={ this.renderField } />
                 <Field type="password" label="Confirm Password" name="confirmPassword" component={ this.renderField } />
+                <Field type="text" label="Address" name="address" component={ this.renderField } />
                 <fieldset className="form-group col-4">
                     { this.renderAlert() }
                     <button type="submit" className="btn btn-primary">Sign up!</button>
@@ -61,6 +63,9 @@ function validate(values) {
     if (!values.email)
         errors.email = "please, enter a valid e-mail address";
 
+    if (!values.name)
+        errors.name = "please, enter your name";
+
     if (!values.password)
         errors.password = "please, enter a valid password";
 
@@ -69,6 +74,9 @@ function validate(values) {
 
     if (values.password != values.confirmPassword)
         errors.confirmPassword = "the confirm password doesn´t match";
+
+    if (!values.address)
+        errors.address = "please, enter your Address";
 
     return errors;
 }

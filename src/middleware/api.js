@@ -18,6 +18,7 @@ export default ({ getState, dispatch }) => next => action => {
         data: data
     })
     .then(response => {
+        console.log(response);
         dispatch(callback(response.data));
     })
     .catch(ex => {

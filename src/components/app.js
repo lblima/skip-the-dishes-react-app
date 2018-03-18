@@ -6,6 +6,7 @@ import Signin from './auth/signin';
 import Signout from './auth/signout';
 import Signup from './auth/signup';
 import Stores from './stores';
+import Products from './products';
 import RequireAuth from './auth/require_auth';
 import Welcome from './welcome';
 
@@ -20,7 +21,8 @@ export default class App extends Component {
           <Route path="/signin" component={ Signin } />
           <Route path="/signout" component={ Signout } />
           <Route path="/signup" component={ Signup } />     
-          <Route path="/feature" component={ RequireAuth(Stores) } />
+          <Route path="/stores" component={ RequireAuth(Stores) } />
+          <Route path="/products" component={ RequireAuth(Products) } />
         </Switch>
       </div>
     );

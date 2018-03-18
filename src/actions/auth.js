@@ -1,12 +1,11 @@
-import { AUTH_USER, UNAUTH_USER, 
-            AUTH_ERROR, FETCH_MESSAGE, API } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
 import axios from 'axios';
 
 const ROOT_URL = 'http://api-vanhack-event-sp.azurewebsites.net/api/v1';
 
-// ================================================================
-// I am going to use Redux-Thunk insted Redux-Promise or redux-saga
-// ================================================================
+// =================================================================
+// I am going to use Redux-Thunk insted Redux-Promise or Redux-Saga
+// =================================================================
 
 export function signInUser(history, { email, password }) {
     return (dispatch) => {
@@ -20,8 +19,8 @@ export function signInUser(history, { email, password }) {
                 // - Save token 
                 localStorage.setItem('token', response.data);
 
-                // - Redirect to the route '/feature'
-                // history.push('/stores');
+                // - Redirect to the route '/stores'
+                history.push('/stores');
             })
             .catch((err) => {
                 // If request is bad ...
@@ -59,8 +58,8 @@ export function signUpUser(history, { email, name, address, password }) {
               // - Save token 
               localStorage.setItem('token', response.data);
 
-              // - Redirect to the route '/feature'
-              history.push('/feature');
+              // - Redirect to the route '/stores'
+              history.push('/stores');
           })
           .catch(err => {
               // If request is bad ...
@@ -68,18 +67,5 @@ export function signUpUser(history, { email, name, address, password }) {
               const errorMessage = err.response.data.error;
               dispatch(authError(errorMessage));
           });        
-    }
-}
-
-//Another better aproach is delegate the async api call to middleware, making my action more easy to test
-export function fetchMessage() {
-    return {
-        type: API,
-        meta: {
-            url: ROOT_URL,
-            method: 'GET',
-            throttle: 2000,
-            callback: (data) => ({ type: FETCH_MESSAGE, payload: data.message })
-        }
     }
 }

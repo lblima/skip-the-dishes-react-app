@@ -1,0 +1,23 @@
+import { FETCH_PRODUCTS_BY_STORES, API } from './types';
+import axios from 'axios';
+
+const ROOT_URL = 'http://api-vanhack-event-sp.azurewebsites.net/api/v1';
+
+// =================================================================
+// I am going to use Redux-Thunk insted Redux-Promise or Redux-Saga
+// =================================================================
+
+//Another better aproach is delegate the async api call to middleware, making my action more easy to test (could use saga)
+export function fetchProductsByStore(id) {
+    return {
+        type: API,
+        meta: {
+            url: `${ROOT_URL}/Store/${id}/products/`,
+            method: 'GET',
+            throttle: 2000,
+            callback: (data) => ({
+                type: FETCH_PRODUCTS_BY_STORES,
+                payload: data
+            })
+        }
+    }
